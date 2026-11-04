@@ -9,43 +9,53 @@
   <title>Johan Grillon | IT &amp; Cybersecurity</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <style>
-    :root{color-scheme:dark;--navy:#071a2c;--gold:#d4b16c;--gold-light:#eed099;--ivory:#f4ead8;--muted:#c4c8c9;--line:rgba(212,177,108,.55)}
+    :root{color-scheme:dark;--navy:#071a2c;--gold:#d4b16c;--gold-light:#eed099;--ivory:#f4ead8;--muted:#c4c8c9;--line:rgba(212,177,108,.55);--action-gap:12px}
     *{box-sizing:border-box}html{min-height:100%;background:var(--navy)}
     body{margin:0;min-height:100svh;color:var(--ivory);font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 50% 10%,#13324b 0,#071a2c 65%)}
     body::before{content:"";position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' fill='%23fff' d='M0 0h160v160H0z'/%3E%3C/svg%3E")}
     a{color:inherit}a:focus-visible,summary:focus-visible{outline:3px solid var(--gold-light);outline-offset:5px}
-    .card{width:100%;max-width:500px;min-height:100svh;margin:0 auto;overflow:hidden;background:radial-gradient(ellipse at 80% 20%,#0c253d 0,#071a2c 65%)}
-    .hero{position:relative;isolation:isolate;min-height:clamp(300px,84vw,410px);padding:36px 7.5% 0;overflow:hidden}
-    .fern{position:absolute;z-index:-1;top:0;right:-1%;width:101%;height:auto;opacity:.83;pointer-events:none;user-select:none}
+    .card{width:100%;max-width:520px;min-height:100svh;margin:0 auto;overflow:hidden;background:radial-gradient(ellipse at 80% 20%,#0c253d 0,#071a2c 65%)}
+    .hero{position:relative;isolation:isolate;aspect-ratio:1 / 1;min-height:300px;padding:36px 7.5% 0;overflow:hidden}
+    .fern{position:absolute;z-index:-1;top:0;right:0;width:100%;height:100%;object-fit:contain;object-position:top right;opacity:.83;pointer-events:none;user-select:none}
     .identity{position:relative;width:fit-content}
     h1{color:var(--gold-light);font:400 clamp(54px,14.6vw,72px)/.99 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:0;text-shadow:0 2px 14px #071a2c}
     h1 span{display:block}h1 span+span{margin-top:.055em}
     .role,.location{margin:0;text-shadow:0 1px 9px #071a2c,0 0 16px #071a2c}
     .role{margin-top:17px;font-size:clamp(16px,4.1vw,20px);font-weight:450;letter-spacing:-.02em}
     .location{margin-top:3px;color:var(--ivory);font-size:clamp(12px,3.25vw,15px)}
-    .content{padding:0 6% max(28px,env(safe-area-inset-bottom))}
-    .qualifications{display:flex;justify-content:space-between;align-items:center;gap:5px;list-style:none;margin:9px 0 26px;padding:0 2%;font-size:clamp(11px,3.15vw,14px);color:var(--ivory)}
-    .qualifications li{white-space:nowrap}.qualifications li+li::before{content:"·";color:var(--gold);margin-right:clamp(7px,2.5vw,16px)}
+    .content{padding:14px 6% max(28px,env(safe-area-inset-bottom))}
     .actions{display:grid;gap:14px}
     .action{display:flex;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:54px;padding:12px 13px;border:1px solid var(--gold);border-radius:9px;text-decoration:none;font-size:15px;font-weight:550;line-height:1.2;color:var(--ivory);background:rgba(4,19,33,.5);transition:background .16s,border-color .16s}
     .action svg{width:23px;height:23px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
     .action:hover{background:#17344c;border-color:var(--gold-light)}
     .primary{min-height:64px;padding:15px 21px;justify-content:flex-start;background:linear-gradient(110deg,#efd197,#d6af6a);border-color:#e9ca8e;color:#071a2c;font-size:22px;font-weight:650;gap:17px}
     .primary:hover{background:#f1d69f}.primary .document{width:26px;height:30px}.primary .arrow{margin-left:auto;width:26px}
-    .secondary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.secondary svg{color:var(--gold-light)}
-    .about{margin-top:27px;border-block:1px solid var(--line)}
-    .about summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:57px;padding:12px 5px;font-size:18px;font-weight:450}
+    .secondary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--action-gap)}.secondary svg{color:var(--gold-light)}
+    .profile-extras{--extras-row-height:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--action-gap);align-items:start;margin-top:24px}
+    .about{min-width:0;margin:0}
+    .certification-badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-items:center;min-height:var(--extras-row-height);height:var(--extras-row-height);list-style:none;padding:0;margin:0}
+    .certification-badges li{min-width:0}
+    .colour-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+    .certification-badges img{display:block;width:100%;max-width:56px;height:auto;aspect-ratio:1;object-fit:contain;border-radius:50%;margin-inline:auto;filter:url(#certification-palette)}
+    .about summary{border-block:1px solid var(--line);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:var(--extras-row-height);padding:12px 5px;font-size:18px;font-weight:450}
     .about summary::-webkit-details-marker{display:none}.chevron{width:17px;height:17px;fill:none;stroke:var(--gold-light);stroke-width:2;transition:transform .18s}.about[open] .chevron{transform:rotate(180deg)}
-    .story{padding:2px 5px 19px;color:#d7dbe0;font-size:15px;line-height:1.75}.story p{margin:0 0 15px}.story p:last-child{margin-bottom:0}
+    .story{width:calc(200% + var(--action-gap));padding:17px 5px 19px;color:#d7dbe0;font-size:15px;line-height:1.75}.story p{margin:0 0 15px}.story p:last-child{margin-bottom:0}
     .contact{display:grid;gap:5px;margin-top:25px}.contact a{display:flex;align-items:center;gap:15px;min-height:42px;padding:5px;width:fit-content;max-width:100%;text-decoration:none;font-size:clamp(14px,3.8vw,17px);overflow-wrap:anywhere}
     .contact svg{width:23px;height:23px;flex:0 0 auto;fill:none;stroke:var(--gold-light);stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}.contact a:hover{color:var(--gold-light)}
-    @media(max-width:360px){.hero{padding-top:30px}.secondary{gap:10px}.secondary .action{font-size:12px;gap:7px;padding-inline:10px}.secondary svg{width:20px;height:20px}}
+    @media(max-width:360px){:root{--action-gap:10px}.hero{padding-top:30px}.secondary .action{font-size:12px;gap:7px;padding-inline:10px}.secondary svg{width:20px;height:20px}}
     @media(min-width:560px){body{padding:30px 20px}.card{min-height:0;border:1px solid rgba(212,177,108,.2);border-radius:16px;box-shadow:0 24px 80px #0005}.hero{padding-top:43px}.content{padding-bottom:33px}}
     @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-    @media print{body,.card{background:white;color:black;padding:0;border:0;box-shadow:none}.hero{min-height:auto;padding:0 0 20px}.fern,.actions,.qualifications,.chevron{display:none}h1,.role,.location,.story,.about summary{color:black;text-shadow:none}h1{font-size:40px}.about .story{display:block}}
+    @media print{body,.card{background:white;color:black;padding:0;border:0;box-shadow:none}.hero{aspect-ratio:auto;min-height:auto;padding:0 0 20px}.fern,.actions,.certification-badges,.chevron{display:none}h1,.role,.location,.story,.about summary{color:black;text-shadow:none}h1{font-size:40px}.profile-extras{display:block}.about .story{display:block;width:auto}}
   </style>
 </head>
 <body>
+  <svg class="colour-definitions" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="certification-palette" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.972409792 -0.007773524 -0.007773524 0.000000000 0.000000000 0.224527207 0.356363847 0.356363847 0.000000000 0.000000000 0.106740921 0.397609932 0.397609932 0.000000000 0.000000000 0.000000000 0.000000000 0.000000000 1.000000000 0.000000000"/>
+      </filter>
+    </defs>
+  </svg>
   <main class="card" aria-label="Johan Grillon digital contact card">
     <header class="hero">
       <img class="fern" src="assets/fern-tricolour.png" width="1254" height="1254" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
@@ -56,9 +66,6 @@
       </div>
     </header>
     <div class="content">
-      <ul class="qualifications" aria-label="Certifications held">
-        <li>CompTIA A+</li><li aria-label="CompTIA Network+">Network+</li><li aria-label="CompTIA Security+">Security+</li>
-      </ul>
       <nav class="actions" aria-label="Connect with Johan">
         <a class="action primary" id="cv-link" href="assets/Johan_Grillon_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="My CV, opens in a new tab">
           <svg class="document" viewBox="0 0 24 28" aria-hidden="true"><path d="M5 2h9l6 6v18H5Z"/><path d="M14 2v7h6M8 14h8M8 18h8M8 22h5"/></svg>
@@ -73,6 +80,7 @@
           </a>
         </div>
       </nav>
+      <div class="profile-extras">
       <details class="about">
         <summary><span>About me</span><svg class="chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m3 6 7 7 7-7"/></svg></summary>
         <div class="story">
@@ -83,6 +91,12 @@
           <p>I’m looking for an entry-level opportunity in IT support, networking or cybersecurity in Auckland, where I can contribute my troubleshooting and customer service experience, learn from experienced colleagues and keep building my technical skills.</p>
         </div>
       </details>
+      <ul class="certification-badges" aria-label="CompTIA certifications held">
+        <li><img src="assets/comptia-a-plus.png" width="600" height="600" alt="CompTIA A+ certified" title="CompTIA A+" decoding="async"></li>
+        <li><img src="assets/comptia-network-plus.png" width="601" height="601" alt="CompTIA Network+ certified" title="CompTIA Network+" decoding="async"></li>
+        <li><img src="assets/comptia-security-plus.png" width="600" height="600" alt="CompTIA Security+ certified" title="CompTIA Security+" decoding="async"></li>
+      </ul>
+      </div>
       <footer class="contact" aria-label="Contact details">
         <a href="mailto:grillon.johan@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 5 9 8 9-8"/></svg><span>grillon.johan@gmail.com</span></a>
         <a href="tel:+64211716242"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 2 4 5-2.5 2.5c1.5 3.5 4.5 6.5 8 8L17 15l5 4c-1 3-3.5 4-6.5 2.5C9 18.5 5.5 15 2.5 8.5 1 5.5 2 3 5 2Z"/></svg><span>+64 21 171 6242</span></a>
