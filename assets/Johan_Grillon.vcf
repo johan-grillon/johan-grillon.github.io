@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Grillon;Johan;;;
+FN:Johan Grillon
+EMAIL;TYPE=INTERNET:grillon.johan@gmail.com
+TEL;TYPE=CELL:+64211716242
+URL:https://www.linkedin.com/in/johan-grillon-cyber
+ADR;TYPE=WORK:;;North Shore;Auckland;;;New Zealand
+NOTE:IT & Cybersecurity. CompTIA A+\, Network+ and Security+.
+END:VCARD
